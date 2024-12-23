@@ -1,8 +1,9 @@
-function KQ = FuncTichPhan(x, y, fx, N, a, b, pp)
-    if(length(x) ~= length(y))
+function KQ = FuncTichPhan(fx, N, a, b, pp)
+(*     if(length(x) ~= length(y))
         fprintf('x và y BẮT BUỘC phải cùng độ dài');
     end
-
+ *)
+(*có thể thêm đầu vào là x y*)
     fx = matlabFunction(str2sym(fx));
 
     switch(pp)
