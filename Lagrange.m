@@ -1,15 +1,14 @@
-function result = Lagrange(xa,ya,x)
-    n=length(xa);
-    sum = 0;
+function poly = Lagrange(xa, ya)
+    n = length(xa);
+    syms x;
+    L = sym(zeros(1, n));
     for i = 1:n
-       product = ya(i);
-       for j = 1:n
-           if i ~= j
-            product = product*(x-xa(j))/(xa(i)-xa(j));
+        L(i) = 1;
+        for j = 1:n
+            if i ~= j
+                L(i) = L(i) * (x - xa(j)) / (xa(i) - xa(j));
+            end
         end
-       end
-       sum=sum+product;
     end
-    result=sum;
+    poly = expand(sum(ya .* L));  % Tạo và mở rộng đa thức Lagrange
 end
-
